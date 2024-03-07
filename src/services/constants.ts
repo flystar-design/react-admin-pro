@@ -1,0 +1,1 @@
+export const NO_AUTHORIZATION_CODE = 5000;
