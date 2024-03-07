@@ -10,7 +10,7 @@ class Request {
    * axios实例
    * @private
    */
-  private instance: AxiosInstance;
+  instance: AxiosInstance;
   /**
    * 拦截器
    * @private

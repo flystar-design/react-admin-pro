@@ -42,7 +42,7 @@ const items: MenuItem[] = [
   getItem('Files', '9', <FileOutlined />)
 ];
 
-const BaseLayout: React.FC = () => {
+const BasicLayout: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG }
@@ -50,45 +50,47 @@ const BaseLayout: React.FC = () => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-      >
-        <div className='demo-logo-vertical' />
-        <Menu
-          theme='light'
-          defaultSelectedKeys={['1']}
-          mode='inline'
-          items={items}
-        />
-      </Sider>
+      <Header style={{ padding: 0, background: 'rgba(255,255,255,0.5' }} />
       <Layout>
-        <Header style={{ padding: 0, background: 'rgba(255,255,255,0.5' }} />
-        <Content
-          style={{ padding: '0 16px', background: 'rgba(255,255,255,1)' }}
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
         >
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG
-            }}
+          <div className='demo-logo-vertical' />
+          <Menu
+            theme='light'
+            defaultSelectedKeys={['1']}
+            mode='inline'
+            items={items}
+          />
+        </Sider>
+        <Layout>
+          <Content
+            style={{ padding: '0 16px', background: 'rgba(255,255,255,1)' }}
           >
-            Bill is a cat.
-          </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+            <Breadcrumb style={{ margin: '16px 0' }}>
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            </Breadcrumb>
+            <div
+              style={{
+                padding: 24,
+                minHeight: 360,
+                background: colorBgContainer,
+                borderRadius: borderRadiusLG
+              }}
+            >
+              Bill is a cat.
+            </div>
+          </Content>
+          <Footer style={{ textAlign: 'center' }}>
+            Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          </Footer>
+        </Layout>
       </Layout>
     </Layout>
   );
 };
 
-export default BaseLayout;
+export default BasicLayout;
