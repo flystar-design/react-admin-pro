@@ -7,7 +7,8 @@ import {
   UserOutlined
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Layout, Menu, theme } from 'antd';
+import { Outlet } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -69,10 +70,6 @@ const BasicLayout: React.FC = () => {
           <Content
             style={{ padding: '0 16px', background: 'rgba(255,255,255,1)' }}
           >
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            </Breadcrumb>
             <div
               style={{
                 padding: 24,
@@ -81,7 +78,7 @@ const BasicLayout: React.FC = () => {
                 borderRadius: borderRadiusLG
               }}
             >
-              Bill is a cat.
+              <Outlet />
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
